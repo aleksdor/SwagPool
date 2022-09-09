@@ -1,0 +1,8 @@
+.vscode
+/node_modules/
+/public/build/
+/tmp
+package-lock.json
+test
+.DS_Store
+.env
