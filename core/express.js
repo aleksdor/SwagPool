@@ -8,7 +8,7 @@ const rpc = require('../routes/rpc')
 
 // const conf = require("../conf");
 
-module.exports = async function (port, db) {
+async function startWeb(port, db) {
 	let app = new express();
 
 	app.use(cors());
@@ -57,3 +57,9 @@ module.exports = async function (port, db) {
 	console.log(`Server started at port ${port}`);
 	return app;
 };
+
+module.exports = {
+    startWeb
+}
+
+
