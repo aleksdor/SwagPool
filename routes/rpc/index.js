@@ -3,7 +3,7 @@ module.exports = {
         return 100
     },
 
-    photo: require('./photo'),
-    
-    user: require('./user')
+    photo: require('./photo'),    
+    user: require('./user'),
+    voting: require('./voting')
 }

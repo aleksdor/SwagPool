@@ -5,13 +5,13 @@ module.exports = {
     /**
      * Create shut for user.
      * @param {*} stream 
-     * @param {*} utoken 
+     * @param {*} author utoken of hunter
      * @param {*} photo Base64 encoded photo
      */
-    async makeShut(stream, utoken, photo){
+    async makeShut(stream, author, photo){
         const { Photo }  = database.get().models
 
-        await Photo.create({stream, utoken, photo})
+        await Photo.create({stream, author, photo})
         return true
     },
 
@@ -23,5 +23,9 @@ module.exports = {
     async getPhotos(stream){
         const { Photo }  = database.get().models
         return Photo.findAll(stream ? {where: {stream}} : {})
+    },
+
+    async makeNFT(photo_id, owner){
+        // Here will be call to NFT creation token.
     }
 }

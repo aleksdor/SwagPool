@@ -13,14 +13,13 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	object.init(
 		{
-			stream: DataTypes.STRING,
-			author: DataTypes.INTEGER,
-			photo: DataTypes.STRING,
-			votes: DataTypes.JSON
+			login: DataTypes.STRING,
+			password: DataTypes.STRING,
+			utoken: DataTypes.STRING
 		},
 		{
 			sequelize,
-			modelName: "Photo",
+			modelName: "User",
 			timestamps: false
 		}
 	);
