@@ -13,15 +13,14 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	object.init(
 		{
-			fip: DataTypes.INTEGER,
-			object: DataTypes.STRING,
-			horizon: DataTypes.STRING,
-			region: DataTypes.STRING,
-			segment: DataTypes.STRING,
+			stream: DataTypes.STRING,
+			utoken: DataTypes.STRING,
+			photo: DataTypes.STRING
 		},
 		{
 			sequelize,
-			modelName: "object",
+			modelName: "Photo",
+			timestamps: false
 		}
 	);
 	return object;

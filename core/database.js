@@ -1,3 +1,13 @@
-let db = {}
+let database = {
+	instance: null,
 
-module.exports = db
+	get() {
+		return this.instance;
+	},
+
+	set(instance) {
+		this.instance = instance;
+	},
+};
+
+module.exports = { database };
