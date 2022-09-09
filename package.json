@@ -1,0 +1,24 @@
+{
+  "name": "swagpool",
+  "version": "1.0.0",
+  "description": "Streamers can do anything cool. And they can do even more if they have Swagpool. Cool NFT mems auction system which perpetuate best Streamer moments in NFT card. As very popular cards of baseball players cards with popular bloggers is the new breath of lamp technology. Memories priceless - NFT valuable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksdor/SwagPool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksdor/SwagPool/issues"
+  },
+  "homepage": "https://github.com/aleksdor/SwagPool#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "jrpc-srv": "^1.0.7"
+  }
+}
