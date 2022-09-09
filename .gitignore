@@ -1,1 +1,12 @@
+<<<<<<< HEAD
 node_modules
+=======
+.vscode
+/node_modules/
+/public/build/
+/tmp
+package-lock.json
+test
+.DS_Store
+.env
+>>>>>>> d-s1-t1

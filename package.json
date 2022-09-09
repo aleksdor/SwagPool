@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "swagpool",
   "version": "1.0.0",
   "description": "Streamers can do anything cool. And they can do even more if they have Swagpool. Cool NFT mems auction system which perpetuate best Streamer moments in NFT card. As very popular cards of baseball players cards with popular bloggers is the new breath of lamp technology. Memories priceless - NFT valuable.",
@@ -20,5 +21,16 @@
   "dependencies": {
     "express": "^4.18.1",
     "jrpc-srv": "^1.0.7"
+=======
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "jrpc-srv": "^1.0.7",
+    "sequelize": "^6.17.0",
+    "sqlite3": "^5.0.4"
+>>>>>>> d-s1-t1
   }
 }
