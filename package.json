@@ -4,7 +4,8 @@
   "description": "Streamers can do anything cool. And they can do even more if they have Swagpool. Cool NFT mems auction system which perpetuate best Streamer moments in NFT card. As very popular cards of baseball players cards with popular bloggers is the new breath of lamp technology. Memories priceless - NFT valuable.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm i -g nodemon && npm i && nodemon"
   },
   "repository": {
     "type": "git",

@@ -51,7 +51,7 @@ async function startWeb(port, db) {
 
 	const jrunner = jrpc.build_rpc_runner(rpc)
 	const jrouter = jrpc.build_rpc_router(jrunner)
-	app.use('/rpc', jrouter)
+	app.use('/rpc', jrouter)	
 
 	app.listen(port);
 	console.log(`Server started at port ${port}`);
