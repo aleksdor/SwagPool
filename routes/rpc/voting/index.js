@@ -3,15 +3,17 @@ const { database } = require("../../../core/database");
 module.exports = {
 	/**
 	 * Start voting for stream
-	 * @param {*} stream
+	 * @param {string} stream_id
 	 */
-	startVoting(stream) {},
+	 startVoting(stream_id) {	
+		return stream_id
+	},
 
 	/**
 	 * Stop voting for stream
 	 * @param {*} stream
 	 */
-	stopVotiong(stream) {},
+	 stopVotiong(stream) {},
 
 	/**
 	 * Vote for photo by user token
@@ -27,11 +29,15 @@ module.exports = {
 		const photo = await Photo.findByPk(photo_id);
 		if (!photo) throw `Photo ${photo_id} not defined`;
 
-        if (photo.votes && photo.votes.includes(user.id)) throw "User already voted"
+		if (photo.votes && photo.votes.includes(user.id)) throw "User already voted";
 
-        photo.votes = photo.votes ? [...photo.votes, user.id] : [user.id]
-        await photo.save()
+		photo.votes = photo.votes ? [...photo.votes, user.id] : [user.id];
+		await photo.save();
 
-        return photo.votes.length
+		return photo.votes.length;
 	},
+
+
+
+
 };

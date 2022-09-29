@@ -21,12 +21,9 @@ const nft = {
 if (process.env.DB_SILENT) db.logging = false
 
 module.exports = {
-    port: process.env.PORT || 4000,
+    port: process.env.PORT || 3000,
 
     db,
 
-    nft,
-
-    // db_path: "sqlite::memory:"
-    // db_path: process.env.DB || "sqlite:../data/base.sqlite"
+    nft_api: process.env.NFT_SERVICE,
 }

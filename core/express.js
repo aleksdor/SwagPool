@@ -49,7 +49,7 @@ async function startWeb(port, db) {
 
 	const jrunner = jrpc.build_rpc_runner(rpc)
 	const jrouter = jrpc.build_rpc_router(jrunner)
-	app.use('/rpc', jrouter)
+	app.use('/rpc', jrouter)	
 
 	app.use("", require(`${__dirname}/../routes`));
 

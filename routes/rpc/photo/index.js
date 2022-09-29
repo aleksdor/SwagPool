@@ -1,3 +1,5 @@
+const { default: axios } = require("axios")
+const conf = require("../../../conf")
 const { database } = require("../../../core/database")
 
 
@@ -25,7 +27,14 @@ module.exports = {
         return Photo.findAll(stream ? {where: {stream}} : {})
     },
 
-    async makeNFT(photo_id, owner){
-        // Here will be call to NFT creation token.
+    async makeNFT(photo_id){
+        const { Photo, User }  = database.get().models
+        const photo = await Photo.findByPk(photo_id)
+        if (!photo) throw `Photo ${photo_id} not found`
+
+        const user = await User.findByPk(photo.author)
+        if (!photo) throw `Author of foto ${photo_id} not found`
+
+        return axios.post(conf.nft_api, {image: photo.photo, address:user.address})        
     }
 }
