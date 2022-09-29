@@ -1,5 +1,6 @@
 const axios = require("axios")
-const conf = require("../conf")
+const conf = require("../conf");
+const { group } = require("../libs/helpers/array");
 const { database } = require("./database")
 
 /**
@@ -22,27 +23,56 @@ async function makeNFTs() {
         // }
 
         const db = database.get();
-        const { Photo } = db.models
-        console.log(await Photo.count())
+        const { Photo, User } = db.models
+        const all_photos = await Photo.findAll({})
+        
+        const groups = group(all_photos.filter(x => x.votes), x => x.stream)
 
-        // const res = await axios.post(conf.nft.api_url, nftToDo)
-        console.log(res)
+        // For each stream get top photo
+        const keys = Object.keys(groups)
+        // console.log(keys)
+        for (let i = 0; i < keys.length; i++){
+            // If phot has >1 votes create NFT for it
+            const group_photos = groups[keys[i]]
+            const winner = group_photos.reduce((s, c) => c.votes.length > s.votes.length ? c : s, group_photos[0])
+
+            try{
+                const user = await User.findOne({where: {utoken: winner.author}})
+                const pack = {
+                    "id": Date.now(),
+                    "addressTo": user.address,
+                    "images": [
+                        {
+                            "name": "winner-image",
+                            "description": "",
+                            "external_url": "",
+                            "base": winner.photo,
+                        }
+                    ]
+                }
+                console.log(`Making NFT for ${winner.id}`)
+                await axios.post(conf.nft.api_url, pack)
+                console.log(`Removing ${winner.id}`)
+                await Photo.destroy({where: {stream: winner.stream}})
+            }
+            catch(ex){
+                console.log(`Fail`, ex)
+            }
+        }
     }
     catch (ex) {
         console.log(ex.message)
     }
 
-    console.log('res')
-
-    // sheduleMakeNfts()
+    sheduleMakeNfts()
 }
 
 /**
  * Shedule making NFTs for winners.
  */
 function sheduleMakeNfts() {
-    makeNFTs()
-    // setTimeout(() => makeNFTs(), conf.nft.timeout)
+    // makeNFTs()
+    setTimeout(() => makeNFTs(), conf.nft.timeout)
 }
 
 module.exports = {

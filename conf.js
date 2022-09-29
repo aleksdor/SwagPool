@@ -25,5 +25,5 @@ module.exports = {
 
     db,
 
-    nft_api: process.env.NFT_SERVICE,
+    nft,
 }
