@@ -6,3 +6,4 @@ package-lock.json
 test
 .DS_Store
 .env
+package-lock.json

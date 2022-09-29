@@ -12,12 +12,20 @@ const db = {
     use_env_variable: false
 };
 
+
+const nft = {
+    timeout: process.env.NFT_TIMEOUT || 30000,
+    api_url: process.env.NFT_API_URL
+}
+
 if (process.env.DB_SILENT) db.logging = false
 
 module.exports = {
     port: process.env.PORT || 4000,
 
     db,
+
+    nft,
 
     // db_path: "sqlite::memory:"
     // db_path: process.env.DB || "sqlite:../data/base.sqlite"
